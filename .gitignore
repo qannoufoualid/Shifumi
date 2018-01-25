@@ -32,18 +32,29 @@ proguard/
 # Android Studio captures folder
 captures/
 
+<<<<<<< HEAD
 # IntelliJ
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/vcs.xml
+=======
+# Intellij
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+>>>>>>> 75f947bb6e97736d8af31f2aa98eefbc33249d98
 .idea/gradle.xml
 .idea/dictionaries
 .idea/libraries
 
 # Keystore files
+<<<<<<< HEAD
 # Uncomment the following line if you do not want to check your keystore files in.
 #*.jks
+=======
+*.jks
+>>>>>>> 75f947bb6e97736d8af31f2aa98eefbc33249d98
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -56,9 +67,20 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+<<<<<<< HEAD
 # fastlane
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+=======
+# Le bordel d'Android studio
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+>>>>>>> 75f947bb6e97736d8af31f2aa98eefbc33249d98

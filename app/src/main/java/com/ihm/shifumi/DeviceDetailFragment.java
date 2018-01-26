@@ -149,6 +149,9 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 				+ ((info.isGroupOwner == true) ? getResources().getString(R.string.yes)
 				: getResources().getString(R.string.no)));
 
+
+
+
 		// InetAddress from WifiP2pInfo struct.
 		view = (TextView) mContentView.findViewById(R.id.device_info);
 		view.setText("Group Owner IP - " + info.groupOwnerAddress.getHostAddress());

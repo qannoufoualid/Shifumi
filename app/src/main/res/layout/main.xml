@@ -20,6 +20,13 @@
             class="com.ihm.shifumi.DeviceDetailFragment"
             android:id="@+id/frag_detail"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/phone_list_height">
+            <!-- Preview: layout=@layout/device_detail -->
+        </fragment>
+        <fragment
+            class="com.ihm.shifumi.GameFragment"
+            android:id="@+id/frag_game"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
             <!-- Preview: layout=@layout/device_detail -->
         </fragment>

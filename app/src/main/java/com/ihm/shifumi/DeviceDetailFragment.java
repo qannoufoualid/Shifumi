@@ -37,6 +37,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ihm.shifumi.DeviceListFragment.DeviceActionListener;
+import com.ihm.shifumi.players.ClientPlayer;
+import com.ihm.shifumi.players.Player;
+import com.ihm.shifumi.players.ServerPlayer;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -160,6 +163,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 		// server. The file server is single threaded, single connection server
 		// socket.
 		Toast.makeText(this.getActivity(), "GAME STARTED", Toast.LENGTH_LONG).show();
+
 		/**
 
 		if (info.groupFormed && info.isGroupOwner) {
@@ -176,7 +180,14 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 		 */
 		// hide the connect button
 		mContentView.findViewById(R.id.btn_connect).setVisibility(View.GONE);
-	}
+
+		//========================OUR GARBAGE =====================
+
+        Intent intent = new Intent(getActivity(), GameActivity.class);
+        intent.putExtra("am_I_the_server", info.isGroupOwner);
+        getActivity().startActivity(intent);
+
+    }
 
 	/**
 	 * Updates the UI with device data

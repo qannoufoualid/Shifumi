@@ -6,7 +6,7 @@
     <solid android:color="@color/layout_border_color"/>
     <stroke
         android:width="4dp"
-        android:color="@android:color/background_dark" />
+        android:color="@android:color/background_light" />
     <padding
         android:left="10dp"
         android:top="2dp"

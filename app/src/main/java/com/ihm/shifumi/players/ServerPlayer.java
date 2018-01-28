@@ -26,7 +26,13 @@ public class ServerPlayer implements Player {
 
     @Override
     public void setReady() {
-        //ReceiveMessage lol = new ReceiveMessage(activity);
+        ReceiveMessage lol = new ReceiveMessage(activity);
+        lol.execute();
+    }
+
+    @Override
+    public void sendMessage() {
+        Log.i("INFOS !!", "Pas de bol, c'est moi qui trigger");
     }
 
 
@@ -45,15 +51,14 @@ public class ServerPlayer implements Player {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                Toast.makeText(activity, "Je suis arrivé ici tout seul", Toast.LENGTH_SHORT).show();
                 Log.i("THREAD !!", "Le serveur est prêt à recevoir");
                 ServerSocket serverSocket = new ServerSocket(8888);
                 Socket client = serverSocket.accept();
 
                 InputStream inputstream = client.getInputStream();
 
-
-                Toast.makeText(activity, inputstream.toString(), Toast.LENGTH_SHORT).show();
+                Log.i("THREAD SERVER", "J'ai reçu un truc : " + inputstream.toString());
+                serverSocket.close();
                 return new Boolean(true);
 
             } catch (IOException e) {

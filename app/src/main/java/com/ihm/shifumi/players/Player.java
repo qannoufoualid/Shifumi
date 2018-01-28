@@ -6,4 +6,6 @@ package com.ihm.shifumi.players;
 
 public interface Player {
     public void setReady();
+
+    public void sendMessage();
 }

@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.ihm.shifumi.listeners.GameButtonListener;
+import com.ihm.shifumi.listeners.LaunchListener;
 import com.ihm.shifumi.players.ClientPlayer;
 import com.ihm.shifumi.players.Player;
 import com.ihm.shifumi.players.ServerPlayer;
@@ -52,7 +53,7 @@ public class GameActivity extends Activity {
         btn_stone.setOnClickListener(new GameButtonListener("stone", player));
         btn_scissors.setOnClickListener(new GameButtonListener("coup-coup", player));
 
-        //btn_play.setOnClickListener();
+        btn_play.setOnClickListener(new LaunchListener(player ));
 
         updateButtonEnabled(false);
         player.setReady();

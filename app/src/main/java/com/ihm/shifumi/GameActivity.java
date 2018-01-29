@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.net.Socket;
@@ -18,16 +19,16 @@ import com.ihm.shifumi.players.Player;
 
 public class GameActivity extends Activity {
 
-
+    public final static int DISCONNECTED = 42;
     private TextView tvHim ;
     private TextView tvYou;
     private TextView tvResult;
 
     private Socket socket;
 
-    Button paperButton;
-    Button rockButton;
-    Button scissorButton;
+    ImageButton paperButton;
+    ImageButton rockButton;
+    ImageButton scissorButton;
     private Button btn_rematch;
 
     private Player player;
@@ -54,7 +55,7 @@ public class GameActivity extends Activity {
         btn_rematch.setOnClickListener(new RematchListener(this));
 
         tvResult = findViewById(R.id.tvResult);
-        tvHim = (TextView) findViewById(R.id.tvHim);
+        tvHim = (TextView) findViewById(R.id.prout);
         tvYou = (TextView) findViewById(R.id.tvYou);
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
@@ -78,9 +79,9 @@ public class GameActivity extends Activity {
 
 
 
-        paperButton = findViewById(R.id.btnPaper);
-        rockButton = findViewById(R.id.btnRock);
-        scissorButton = findViewById(R.id.btnScissor);
+        paperButton = findViewById(R.id.paperButton);
+        rockButton = findViewById(R.id.rockButton);
+        scissorButton = findViewById(R.id.scissorButton);
 
 
 
@@ -158,4 +159,11 @@ public class GameActivity extends Activity {
     public void setSocket(Socket socket) {
         this.socket = socket;
     }
+
+    public void onBackPressed(){
+        new MessageSender().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,socket, Action.DISCONNECT);
+        this.finish();
+    }
+
+
 }

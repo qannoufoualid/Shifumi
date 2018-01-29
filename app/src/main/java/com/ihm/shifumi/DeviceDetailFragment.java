@@ -124,9 +124,13 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+		if(requestCode == GameActivity.DISCONNECTED){
+			((DeviceActionListener) getActivity()).disconnect();
+			this.getActivity().finishAffinity();
+		}
 		// User has picked an image. Transfer it to group owner i.e peer using
 		// DataTransferService.
-		Uri uri = data.getData();
+		/*Uri uri = data.getData();
 		TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
 		statusText.setText("Sending: " + uri);
 		Log.d(WiFiDirectActivity.TAG, "Intent----------- " + uri);
@@ -136,7 +140,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 		serviceIntent.putExtra(DataTransferService.EXTRAS_GROUP_OWNER_ADDRESS,
 				info.groupOwnerAddress.getHostAddress());
 		serviceIntent.putExtra(DataTransferService.EXTRAS_GROUP_OWNER_PORT, 8988);
-		getActivity().startService(serviceIntent);
+		getActivity().startService(serviceIntent);*/
 	}
 
 	@Override
@@ -164,7 +168,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
 			Intent intent = new Intent(DeviceDetailFragment.this.getActivity(), GameActivity.class);
 			intent.putExtra("deviceInfo", info);
-			startActivity(intent);
+			startActivityForResult(intent, GameActivity.DISCONNECTED);
 
 			Toast.makeText(DeviceDetailFragment.this.getActivity(), "GAME STARTED", Toast.LENGTH_LONG).show();
 

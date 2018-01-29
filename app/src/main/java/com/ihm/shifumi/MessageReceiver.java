@@ -31,8 +31,10 @@ public class MessageReceiver extends AsyncTask<Object, Integer, String>{
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(message.equals(Action.REPLAY)){
+                        if(message.equals(Action.REPLAY)) {
                             activity.reset();
+                        }else if(message.equals(Action.DISCONNECT)){
+                            activity.finishAffinity();
                         }else
                             activity.onMessageReceived(message);
                         //tvHim.setText("Him : "+message.getStringValue());

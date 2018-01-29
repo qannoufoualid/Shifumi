@@ -11,7 +11,8 @@ public enum Action {
     PAPER(1),
     ROCK(2),
     SCISSOR(3),
-    REPLAY(4);
+    REPLAY(4),
+    DISCONNECT(5);
 
     private int value;
     private static Map map = new HashMap();

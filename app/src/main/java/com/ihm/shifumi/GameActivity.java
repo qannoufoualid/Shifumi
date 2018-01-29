@@ -17,7 +17,13 @@ import android.widget.Toast;
 import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 
+import com.ihm.shifumi.players.ClientPlayer;
+import com.ihm.shifumi.players.Player;
+import com.ihm.shifumi.players.ServerPlayer;
+
 public class GameActivity extends Activity {
+
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +70,6 @@ public class GameActivity extends Activity {
         rockButton.setOnClickListener(new GameClickListener(Action.ROCK, socket, tvYou));
         scissorButton.setOnClickListener(new GameClickListener(Action.SCISSOR, socket, tvYou));
 
-        Log.d("GameActivity", info.groupOwnerAddress.getHostName());
 
     }
 }

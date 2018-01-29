@@ -37,6 +37,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ihm.shifumi.DeviceListFragment.DeviceActionListener;
+import com.ihm.shifumi.players.ClientPlayer;
+import com.ihm.shifumi.players.Player;
+import com.ihm.shifumi.players.ServerPlayer;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -164,9 +167,6 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 			startActivity(intent);
 
 			Toast.makeText(DeviceDetailFragment.this.getActivity(), "GAME STARTED", Toast.LENGTH_LONG).show();
-
-
-
 
 		/**
 

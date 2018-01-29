@@ -34,10 +34,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Used for transferring files  after a successful connection -->
-        <service
-            android:name=".DataTransferService"
-            android:enabled="true" />
 
         <activity android:name=".GameActivity"></activity>
     </application>

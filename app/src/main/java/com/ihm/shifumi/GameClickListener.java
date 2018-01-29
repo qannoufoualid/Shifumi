@@ -16,19 +16,23 @@ public class GameClickListener implements View.OnClickListener {
     private Action action;
     private Socket socket;
     private TextView tvYou;
+    private GameActivity activity;
 
-    public GameClickListener(Action action, Socket socket, TextView tvYou){
+    public GameClickListener(Action action, Socket socket, TextView tvYou, GameActivity activity){
         this.action = action;
         this.socket = socket;
         this.tvYou = tvYou;
+        this.activity = activity;
     }
 
     @Override
     public void onClick(View view) {
 
         tvYou.setText("You : "+action.getStringValue());
-
+        activity.setMyMove(action);
         Log.d("GameClickListener", "Sending the message ...");
         new MessageSender().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,socket, action);
+        activity.enableGameButton(false);
+        activity.resolution();
     }
 }

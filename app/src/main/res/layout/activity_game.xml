@@ -8,7 +8,6 @@
     android:orientation="vertical">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
@@ -42,18 +41,44 @@
         android:layout_height="100dp">
 
         <TextView
-            android:id="@+id/tvHim"
+            android:id="@+id/tvbgHim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Him : " />
+            android:text="@string/stringHim" />
+
+        <TextView
+            android:id="@+id/tvHim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvbgYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/stringYou" />
+
         <TextView
             android:id="@+id/tvYou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="You : " />
+            android:layout_weight="1" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btn_rematch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:text="@string/btn_rematch" />
 
 </LinearLayout>

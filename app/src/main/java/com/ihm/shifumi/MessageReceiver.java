@@ -21,18 +21,21 @@ public class MessageReceiver extends AsyncTask<Object, Integer, String>{
 
         Socket socket = (Socket) objects[0];
         final TextView tvHim = (TextView) objects[1];
-        Activity activity = (Activity) objects[2];
+        final GameActivity activity = (GameActivity) objects[2];
         try {
 
             while(true){
-                DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+                final DataInputStream inputStream = new DataInputStream(socket.getInputStream());
                 final Action message = Action.valueOf(inputStream.readInt());
                 Log.d("MessageReceiver", String.valueOf(message));
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
-                        tvHim.setText("Him : "+message.getStringValue());
+                        if(message.equals(Action.REPLAY)){
+                            activity.reset();
+                        }else
+                            activity.onMessageReceived(message);
+                        //tvHim.setText("Him : "+message.getStringValue());
 
                     }
                 });
